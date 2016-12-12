@@ -10,7 +10,8 @@ class PostSaver:
 			- AssertionError
 		"""
 		assert post is not None, "post is not defined."
-
+		post._insert_time = arrow.utcnow().datetime
+		
 		config = ConfigFactory.get_config(ConfigFactory.DATABASE)
 		config = config.get("azure-document-db")
 
